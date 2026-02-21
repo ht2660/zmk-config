@@ -1,0 +1,2 @@
+config ZMK_KEYBOARD_HT20061996
+    bool "ht20061996 keyboard"

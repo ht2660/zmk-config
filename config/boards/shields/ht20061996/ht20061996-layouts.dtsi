@@ -1,0 +1,30 @@
+// See https://zmk.dev/docs/development/hardware-integration/physical-layouts
+// for how to configure this.
+#include <dt-bindings/zmk/behaviors.h>
+#include <dt-bindings/zmk/keys.h>
+/ {
+    layouts {
+        compatible = "zmk,physical-layouts";
+        default_layout: default_layout {
+            compatible = "zmk,physical-layout";
+            display-name = "Default";
+            transform = <&default_transform>;
+            kscan = <&kscan>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+#if ZMK_BEHAVIOR_OMIT(GRESC)
+        /omit-if-no-ref/
+#endif
+        gresc: grave_escape {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ESC>, <&kp GRAVE>;
+            mods = <(|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
+            display-name = "Grave/Escape";
+        };
+    };
+};

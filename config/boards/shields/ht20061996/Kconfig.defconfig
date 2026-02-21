@@ -1,0 +1,6 @@
+if ZMK_KEYBOARD_HT20061996
+
+config ZMK_KEYBOARD_NAME
+    default "ht20061996"
+
+endif
