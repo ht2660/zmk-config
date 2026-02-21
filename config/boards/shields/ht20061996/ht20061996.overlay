@@ -1,9 +1,6 @@
 #include "ht20061996-layouts.dtsi"
 
 / {
-    chosen {
-        zmk,physical-layout = &default_layout;
-    };
 
     kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
