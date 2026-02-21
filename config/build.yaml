@@ -1,0 +1,3 @@
+include:
+  - board: adafruit_feather_nrf52840
+    shield: ht20061996
