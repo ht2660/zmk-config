@@ -1,13 +1,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-#define RC(row, col) MATRIX_POS(row, col)
-
 / {
     default_layout: default_layout {
         compatible = "zmk,physical-layout";
         rows = <5>;
         columns = <14>;
-
         transform = <&default_transform>;
     };
 
