@@ -1,4 +1,4 @@
-#include "ht20061996-layout.dtsi"
+#include "ht20061996-layouts.dtsi"
 
 / {
     chosen {
