@@ -1,4 +1,4 @@
-#include "ht20061996-matrix-transform.dtsi"
+#include "ht20061996-layout.dtsi"
 
 / {
     chosen {
