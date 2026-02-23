@@ -1,8 +1,9 @@
-#include "ht20061996-layouts.dtsi"
+#include "ht20061996-matrix-transform.dtsi"
 
 / {
     chosen {
         zmk,keyboard = &ht20061996;
+        zmk,matrix-transform = &matrix_transform;
     };
 
     ht20061996: keyboard {
