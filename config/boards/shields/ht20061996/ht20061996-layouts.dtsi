@@ -83,7 +83,7 @@
     };
 
     position_map {
-        compatible = "zmk,physical-layout-position-map;
+        compatible = "zmk,physical-layout-position-map";
 
         layout_0 {
             physical-layout = <&layout_0>;
