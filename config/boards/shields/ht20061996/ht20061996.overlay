@@ -2,15 +2,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
-    layouts {
-        compatible = "zmk,physical-layouts";
-        default_layout: default_layout {
-            compatible = "zmk,physical-layout";
-            display-name = "HT20061996 60%";
-            transform = <&default_transform>;
-        };
-    };
-    
     default_transform: default_transform {
         compatible = "zmk,matrix-transform";
         rows = <5>;
