@@ -9,14 +9,14 @@
         zephyr,console = &cdc_acm_uart0;
         zephyr,shell-uart = &cdc_acm_uart0;
         zephyr,uart-mcumgr = &cdc_acm_uart0;
-
-        /* Required for ZMK Studio */
-        zephyr,udc = &usbd;
+        zephyr,udc = &zephyr_udc0;
     };
 
-    zephyr_udc0: &usbd {
-    status = "okay";
-};
+    /* ZMK Studio USB Device Controller Node */
+    zephyr_udc0: zephyr_udc0 {
+        compatible = "zephyr,udc";
+        controller = <&usbd>;
+    };
 
     leds {
         compatible = "gpio-leds";
@@ -33,7 +33,7 @@
     };
 };
 
-/* Enable USB */
+/* Enable USB peripheral */
 &usbd {
     status = "okay";
 };
