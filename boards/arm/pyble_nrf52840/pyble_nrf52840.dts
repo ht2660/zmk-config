@@ -14,9 +14,9 @@
         zephyr,udc = &usbd;
     };
 
-    aliases {
-        zephyr_udc0 = &usbd;
-    };
+    zephyr_udc0: &usbd {
+    status = "okay";
+};
 
     leds {
         compatible = "gpio-leds";
