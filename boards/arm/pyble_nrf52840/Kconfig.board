@@ -1,2 +1,0 @@
-config BOARD_PYBLE_NRF52840
-    bool "pyBLE-NRF52840 board"
