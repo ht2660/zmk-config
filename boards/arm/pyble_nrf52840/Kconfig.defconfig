@@ -3,13 +3,4 @@ if BOARD_PYBLE_NRF52840
 config BOARD
     default "pyble_nrf52840"
 
-config SOC
-    default "nRF52840_QIAA"
-
-config HAS_NRFX
-    default y
-
-config HAS_HW_NRF_USBREG
-    default y
-
 endif
