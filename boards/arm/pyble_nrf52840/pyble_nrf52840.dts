@@ -5,17 +5,11 @@
     model = "01Studio pyBLE-NRF52840";
     compatible = "nordic,nrf52840-qiaa";
 
-chosen {
-    zephyr,console = &uart0;
-    zephyr,shell-uart = &uart0;
-    zephyr,uart-mcumgr = &uart0;
-    zephyr,udc = &zephyr_udc0;
-};
-
-    /* ZMK Studio USB Device Controller Node */
-    zephyr_udc0: zephyr_udc0 {
-        compatible = "zephyr,udc";
-        controller = <&usbd>;
+    chosen {
+        zephyr,console = &cdc_acm_uart0;
+        zephyr,shell-uart = &cdc_acm_uart0;
+        zephyr,uart-mcumgr = &cdc_acm_uart0;
+        zephyr,udc = &usbd;
     };
 
     leds {
@@ -33,14 +27,11 @@ chosen {
     };
 };
 
-/* Enable USB peripheral */
 &usbd {
     status = "okay";
 };
 
-/* Enable GPIO */
 &gpio0 { status = "okay"; };
 &gpio1 { status = "okay"; };
 
-/* Disable QSPI */
 &qspi { status = "disabled"; };
