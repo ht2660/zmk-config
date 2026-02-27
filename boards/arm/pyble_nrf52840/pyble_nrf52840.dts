@@ -12,6 +12,10 @@
         zephyr,udc = &usbd;
     };
 
+    aliases {
+        zephyr_udc0 = &usbd;
+    };
+
     leds {
         compatible = "gpio-leds";
 
