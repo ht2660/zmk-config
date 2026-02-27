@@ -1,3 +1,4 @@
 config BOARD_PYBLE_NRF52840
     bool "pyBLE NRF52840"
     depends on SOC_NRF52840_QIAA
+    select SOC_NRF52840_QIAA
