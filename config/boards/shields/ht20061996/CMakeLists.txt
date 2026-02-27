@@ -1,3 +1,3 @@
-if(CONFIG_ZMK_KEYBOARD_HT20061996)
-  zephyr_include_directories(.)
+if(SHIELD_HT20061996)
+  zephyr_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 endif()

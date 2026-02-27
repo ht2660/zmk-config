@@ -1,2 +1,4 @@
 config ZMK_KEYBOARD_HT20061996
-    bool "ht20061996 keyboard"
+    bool "HT20061996 Keyboard"
+    depends on SHIELD_HT20061996
+    select ZMK_KEYBOARD
