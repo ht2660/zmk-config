@@ -8,6 +8,14 @@
     chosen {
         zephyr,console = &cdc_acm_uart0;
         zephyr,shell-uart = &cdc_acm_uart0;
+        zephyr,uart-mcumgr = &cdc_acm_uart0;
+
+        /* Required for ZMK Studio */
+        zephyr,udc = &usbd;
+    };
+
+    aliases {
+        zephyr_udc0 = &usbd;
     };
 
     leds {
@@ -25,19 +33,14 @@
     };
 };
 
+/* Enable USB */
 &usbd {
     status = "okay";
 };
 
-&gpio0 {
-    status = "okay";
-};
+/* Enable GPIO */
+&gpio0 { status = "okay"; };
+&gpio1 { status = "okay"; };
 
-&gpio1 {
-    status = "okay";
-};
-
-/* Disable QSPI completely */
-&qspi {
-    status = "disabled";
-};
+/* Disable QSPI */
+&qspi { status = "disabled"; };
