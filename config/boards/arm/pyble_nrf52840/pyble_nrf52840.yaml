@@ -1,0 +1,11 @@
+identifier: pyble_nrf52840
+name: pyBLE-NRF52840
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+ram: 256
+flash: 1024
+supported:
+  - usb_device
+  - ble

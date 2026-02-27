@@ -1,5 +1,5 @@
 include:
-  - board: adafruit_feather_nrf52840
+  - board: pyble_nrf52840
     shield: ht20061996
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
