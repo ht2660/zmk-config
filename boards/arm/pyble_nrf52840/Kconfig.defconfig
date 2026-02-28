@@ -5,7 +5,7 @@ config BOARD
 
 config BT_HCI_H4
     bool
-    default n
+    default y
 
 config BT_CTLR
     bool
