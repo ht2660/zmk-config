@@ -3,4 +3,16 @@ if BOARD_PYBLE_NRF52840
 config BOARD
     default "pyble_nrf52840"
 
+config BT_HCI_H4
+    bool
+    default n
+
+config BT_CTLR
+    bool
+    default y
+
+config IEEE802154_NRF5
+    bool
+    default y
+
 endif
