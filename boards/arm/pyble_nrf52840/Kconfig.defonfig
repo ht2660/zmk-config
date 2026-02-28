@@ -1,6 +1,0 @@
-if BOARD_PYBLE_NRF52840
-
-config BOARD
-    default "pyble_nrf52840"
-
-endif

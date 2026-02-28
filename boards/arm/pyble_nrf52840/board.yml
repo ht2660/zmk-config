@@ -5,7 +5,7 @@ arch: arm
 toolchain:
   - zephyr
 ram: 256
-flash: 2048
+flash: 1024
 supported:
   - usb_device
   - ble
