@@ -29,7 +29,7 @@
     };
     
         extra1 {
-            status = "reversed";
+            status = "reserved";
         };
 
     combos {
