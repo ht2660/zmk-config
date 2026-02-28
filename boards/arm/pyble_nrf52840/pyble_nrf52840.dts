@@ -63,20 +63,22 @@ zephyr_udc0: &usbd {
         #address-cells = <1>;
         #size-cells = <1>;
 
+        /* Bootloader reserved space (48KB) */
         boot_partition: partition@0 {
-            reg = <0x00000000 0x00028000>;
+            reg = <0x00000000 0x0000C000>;
         };
 
-        slot0_partition: partition@28000 {
-            label = "image-0";
-            reg = <0x00028000 0x000C2000>; 
+        /* Application starts at 0xC000 */
+        slot0_partition: partition@c000 {
+            reg = <0x0000C000 0x000D2000>;
         };
 
-        storage_partition: partition@ea000 {
-            label = "storage";
-            reg = <0x000EA000 0x00016000>;
+        /* Storage moved to the end of flash */
+        storage_partition: partition@de000 {
+            reg = <0x000DE000 0x00022000>;
         };
     };
+    
     vbus_detect: vbus_detect {
         compatible = "zmk,cdc-acm-vbus-detect";
     };
