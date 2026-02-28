@@ -25,3 +25,7 @@ CONFIG_ZMK_USB_LOGGING=n
 
 # Bootloader compatibility
 CONFIG_BOOTLOADER_MCUBOOT=n
+
+# Use internal RC instead of external crystal
+CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+CONFIG_CLOCK_CONTROL_NRF_K32SRC_500PPM=y
