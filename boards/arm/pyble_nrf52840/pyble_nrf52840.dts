@@ -64,16 +64,15 @@ zephyr_udc0: &usbd {
         #size-cells = <1>;
 
         boot_partition: partition@0 {
-            label = "mcuboot";
             reg = <0x00000000 0x00028000>;
         };
-    
+
         slot0_partition: partition@28000 {
             label = "image-0";
-            reg = <0x0000C000 0x000E4000>; 
+            reg = <0x00028000 0x000C2000>; 
         };
-        
-        storage_partition: partition@f0000 {
+
+        storage_partition: partition@ea000 {
             label = "storage";
             reg = <0x000EA000 0x00016000>;
         };
