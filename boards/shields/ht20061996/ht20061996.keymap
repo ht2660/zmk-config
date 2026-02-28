@@ -30,7 +30,7 @@
     
         extra1 {
             status = "reversed";
-        }
+        };
 
     combos {
         compatible = "zmk,combos";
