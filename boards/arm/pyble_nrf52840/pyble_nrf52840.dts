@@ -1,6 +1,5 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
-#include <dt-bindings/zmk/matrix_transform.h>
 
 / {
     model = "01Studio pyBLE-NRF52840";
@@ -11,39 +10,23 @@
         zephyr,code-partition = &slot0_partition;
         zephyr,sram = &sram0;
         zephyr,flash = &flash0;
-        /* Label the native USB controller for ZMK Studio */
-        zephyr,display = &blue_led; // Optional: fallback for status
     };
 
     leds {
         compatible = "gpio-leds";
         red_led: led_0 {
-            gpios = <&gpio0 30 GPIO_ACTIVE_LOW>; // Corrected to P0.30 per schematic
+            gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
             label = "Red LED";
         };
         blue_led: led_1 {
-            gpios = <&gpio1 11 GPIO_ACTIVE_LOW>; // Corrected to P1.11 per schematic
+            gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
             label = "Blue LED";
         };
     };
-
-    /* vbus-detect is critical for stable ZMK USB behavior */
-    vbus_detect: vbus_detect {
-        compatible = "zmk,cdc-acm-vbus-detect";
-    };
 };
 
-/* Hardware Peripheral Config */
-
-&gpio0 { status = "okay"; };
-&gpio1 { status = "okay"; };
-
-&usbd {
+zephyr_udc0: &usbd {
     status = "okay";
-    cdc_acm_uart: cdc_acm_uart {
-        compatible = "zephyr,cdc-acm-uart";
-        label = "CDC_ACM_0";
-    };
 };
 
 &pinctrl {
@@ -71,7 +54,9 @@
     pinctrl-names = "default", "sleep";
 };
 
-/* Use the full 1MB internal flash to prevent overflows */
+&gpio0 { status = "okay"; };
+&gpio1 { status = "okay"; };
+
 &flash0 {
     partitions {
         compatible = "fixed-partitions";
@@ -82,13 +67,15 @@
             label = "mcuboot";
             reg = <0x00000000 0x0000C000>;
         };
+        /* 912KB for the app - should fit Studio now */
         slot0_partition: partition@c000 {
             label = "image-0";
-            reg = <0x0000C000 0x000E6000>; // Maximized to 920KB
+            reg = <0x0000C000 0x000E4000>; 
         };
-        storage_partition: partition@f2000 {
+        /* 64KB for settings */
+        storage_partition: partition@f0000 {
             label = "storage";
-            reg = <0x000F2000 0x0000E000>; // Space for ZMK Studio settings
+            reg = <0x000F0000 0x00010000>;
         };
     };
 };
