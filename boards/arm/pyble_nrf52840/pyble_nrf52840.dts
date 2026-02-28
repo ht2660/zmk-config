@@ -15,11 +15,11 @@
     leds {
         compatible = "gpio-leds";
         red_led: led_0 {
-            gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
+            gpios = <&gpio1 15 GPIO_ACTIVE_LOW>;
             label = "Red LED";
         };
         blue_led: led_1 {
-            gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
+            gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
             label = "Blue LED";
         };
     };
@@ -77,5 +77,8 @@ zephyr_udc0: &usbd {
             label = "storage";
             reg = <0x000EA000 0x00016000>;
         };
+    };
+    vbus_detect: vbus_detect {
+        compatible = "zmk,cdc-acm-vbus-detect";
     };
 };
